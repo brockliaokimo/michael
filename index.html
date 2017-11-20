@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html>
+<head>	
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<title>Foxconn-VN</title>
+
+	 <link rel="stylesheet" href="css/jquery.mobile-1.0a2.min.css" />
+<!--    <link rel="stylesheet" href="index.css">-->
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/jquery.mobile-1.0a2.min.js"></script>
+	<script src="js/index1.js"></script>
+</head>
+
+<body>
+<!-------------------------------------------------------------------------------------------->    
+<!--Main Page----------------------------------------------------------------------------->    
+<div data-role="page" id="Main">
+<!-- /header -->
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>Foxconn-VN</h1>
+    </div>
+<!-- /content -->
+    <div data-role="content">
+        <center><img src="images/foxconn_logo.jpg" alt="Foxconn-VN" />
+        <div data-role="content" data-theme="e" class="ui-content ui-body-e" role="main">
+			<a href="#EmployeeF" data-role="button" data-theme="e" data-icon="arrow-r" data-inline="true" class="ui-btn ui-btn-inline ui-btn-icon-left ui-btn-corner-all ui-shadow ui-btn-up-e"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">English, latest version</span><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></span></a>
+			<a href="#" rel="external" data-role="button" data-theme="a" data-icon="arrow-r" data-inline="true" class="ui-btn ui-btn-up-a ui-btn-inline ui-btn-icon-left ui-btn-corner-all ui-shadow"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Chinese, upcoming</span><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></span></a>
+        </div>
+        <br>
+        <a href="#" target="itunes_store"><img src="images/badge_appstore-lrg.gif" alt="Foxconn-VN" style="border: 0;"/></a>
+        </center>
+    </div>
+    <div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px" data-position="fixed"><center> Foxconn-VN</center></div>
+</div>
+    
+<!-------------------------------------------------------------------------------------------->    
+<!--Home Page----------------------------------------------------------------------------->    
+    <p><!-- Start of home page --></p>
+    <div data-role="page" id="Home">
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>Home Foxconn</h1>
+    </div>
+<!-- /header -->
+    <div data-role="content"><center><img src="images/foxconn_logo.jpg" alt="Foxconn-VN" />
+        <h2><i>Database of our factory</i></h2></center>
+<!-- /content -->
+        <div>
+
+        </div>
+        <ul data-role="listview" data-theme="d">
+            <li><a href="EmployeeF">Employee</a></li>
+            <li><a href="#ProductF">Product &amp; Line</a></li>
+            <li><a href="#QuantityF">Quantity</a></li>
+            <li><a href="#CustomerF">Customer</a></li>
+        </ul>
+    </div>
+<!-- /footer -->    
+    <div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px" data-position="fixed" ><center> <a href="about" data-role="button">About us</a> <a href="#Main
+        " data-role="button">Language</a></center></div>
+</div>
+           
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->     
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!-- EmployeeF Pages>-->    
+<div data-role="page" id="EmployeeF">
+<!---Header-->    
+    <div data-role="header" data-theme="b" data-position="fixed" data-position="fixed">
+        <h1><center>Employee</center></h1>
+    </div>
+<!--Content -->
+    <div data-role="content">
+
+        <div data-role="controlgroup" data-type="horizontal" id="hidenf" data-mini="true">
+			<a href="#" type="button" id="btnSubmitUpdate" onclick="SearchEvent()">Search</a>
+            <a href="#UpdateData" type="button" onclick="UpdateEvent()" id="btnUpdate">Update</a>
+            <a href="#" type="button" onclick="DeleteSubmit()">Delete</a>
+            <a href="#InsertDataF" type="button">Insert</a>
+        </div>
+        <br>
+        <div id="custom-text-fertility"></div>
+
+       <p> <input placeholder="Input Text Search For Emp No Or Emp Name" data-type="search" id="searchkey" style="align-content:center ;width:100%;"> </p>
+	          
+        <div data-role="content" id="hidenf2" >
+            <ul data-role="listview" id="contributionList">
+                <li id="EMP_NO"></li>
+                <li id="EMP_NAME"></li>
+                <li id="EMP_RANK"></li>
+				<li id="CLASS_NAME"></li>
+                <li id="STATION_NAME"></li>
+                <li id="QUIT_DATE"></li>
+                <li id="EMP_PASS"></li>
+                <li id="EMP_BC"></li>
+                <li id="EMP_PWD_PASS"></li>
+                <li id="EMAIL"></li>
+            </ul>
+            <br />
+        </div>    
+        <br>
+        <br>
+    </div>
+    <!--footer-->
+    <div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px" data-position="fixed"><center> <a href="about" data-role="button">About us</a> <a href="#Main" data-role="button">Language</a></center></div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->     
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!-- Insert Pages>-->    
+<div data-role="page" id="InsertDataF">
+<!-- /header -->     
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1><center>Please Input Your Infor</center></h1>
+    </div>
+<!--Content-->   
+    <form method="post" id="InsertForm" action="" method="post" data-theme="b">
+        <p></p>
+        EMP NO: (*) <br> 
+        <input type="text" name="txtemp" id="txtemp" placeholder="EMP_NO"><br>
+        EMP NAME: (*)<br>
+        <input type="text" name="txtname" id="txtname" placeholder="INPUT EMP NAME"><br>
+        EMP RANK:<br>
+        <input type="text" name="txtrank" id="txtrank" placeholder="INPUT EMP RANK"><br>
+        CLASS NAME:(*) <br>
+        <input type="text" name="txtclassname" id="txtclassname" placeholder="INPUT CLASS NAME"><br>
+        STATION NAME:<br>
+        <input type="text" name="txtstationname" id="txtstationname" placeholder="INPUT STATION NAME"><br>
+        EMP PASS: (*)<br>
+        <input type="text" name="txtemppass" id="txtemppass" placeholder="INPUT EMP_PASS"><br>
+        EMP BC:<br>
+        <input type="text" name="txtempbc" id="txtempbc" placeholder="INPUT EMP_BC"><br>
+        EMP PWD PASS:<br>
+        <input type="text" name="txtemppwdpass" id="txtemppwdpass" placeholder="INPUT EMP_PWD_PASS"><br>
+        EMAIL:<br>
+        <input type="text" name="txtemail" id="txtemail" placeholder="INPUT EMAIL"><br>
+        <P></P><br>
+        <a class="button" href="#" type="button" id="button_Reset" onclick="InsertSubmit()">Submit</a>
+        <center><button id="button_Reset" type="reset" formaction="InsertForm" >Reset Form</button></center>
+        <br style="clear:both" />
+    </form>    
+<!--footer-->
+    <div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px" data-position="fixed"><center> <a href="about" data-role="button">About us</a> <a href="#Main" data-role="button">Language</a></center></div>
+    <br>
+    <br>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->     
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!-- UPDATE Pages>-->    
+<div data-role="page" id="UpdateData">
+<!-- /header -->     
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1><center>Edit Infor</center></h1>
+    </div>
+<!--Content-->  
+    <form id="UpdateForm">
+        EMP NO :<br>
+        <input type="text" name="txtempupdate" id="txtempupdate" placeholder="EMP_NO" disabled><br>
+        EMP NAME :<br>
+        <input type="text" name="txtnameupdate" id="txtnameupdate" placeholder="INPUT EMP NAME"><br>
+        EMP RANK :<br>
+        <input type="text" name="txtrankupdate" id="txtrankupdate" placeholder="INPUT EMP RANK"><br>
+        CLASS NAME :<br>
+        <input type="text" name="txtclassnameupdate" id="txtclassnameupdate" placeholder="INPUT CLASS NAME"><br>
+        STATION NAME :<br>
+        <input type="text" name="txtstationnameupdate" id="txtstationnameupdate" placeholder=""><br>
+         QUIT DATE :<br>
+        <input type="text" name="txtstationnameupdate" id="txtquitdateupdate" placeholder=""><br>
+        EMP PASS:<br>
+        <input type="text" name="txtemppassupdate" id="txtemppassupdate" placeholder=""><br>
+        EMP BC:<br>
+        <input type="text" name="txtembbcupdate" id="txtembbcupdate" placeholder=""><br>
+        EMP PWD PASS:<br>
+        <input type="text" name="txtemppwdpassupdate" id="txtemppwdpassupdate" placeholder=""><br>
+        EMAIL : <br>
+        <input type="text" name="txtemailupdate" id="txtemailupdate" placeholder="INPUT EMAIL"><br>
+		<br>
+        <a class="aaa" href="#" type="button" id="hfghfghfg" onclick="UpdateSubmitee()">Update Infor</a>
+        <br>
+        <br>
+        <br style="clear:both" />
+    </form>
+     
+<!--footer-->
+    <div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px" data-position="fixed"><center> <a href="about" data-role="button">About us</a> <a href="#Main" data-role="button">Language</a></center></div>
+    <br>
+    <br>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->     
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!-- Product&Line Pages>-->    
+<div data-role="page" id="ProductF">
+<!-- /header -->     
+    <div data-role="header" data-theme="b">
+        <h1><center>Product&Line</center></h1>
+    </div>
+<!--Content-->   
+    <h4><center>ProductF Page Content<center><h4>
+<!--footer-->
+    <div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px"><center> <a href="about" data-role="button">About us</a> <a href="#Main" data-role="button">Language</a></center></div>
+</div>
+<!----   
+<p><!-- /page -->
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->     
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!-- Product&Line Pages>-->    
+<div data-role="page" id="QuantityF">
+<!-- /header -->    
+    <div data-role="header" data-theme="b">
+        <h1><center>Quantity</center></h1>
+    </div>
+<!-- /content -->
+    <h4><center>Quantity Page Content<center><h4>
+<!-- /footer -->    
+        <div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px"><center> <a href="about" data-role="button">About us</a> <a href="#Main" data-role="button">Language</a></center></div>
+        <br>
+    <br>
+</div>
+<!---- 
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!-- Customer Pages>-->    
+<div data-role="page" id="CustomerF">
+<!-- /header -->    
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1><center>Customer<center></h1>
+    </div>
+<!-- /content -->            
+    <h4><center>Customer Page Content<center><h4>
+<!-- /footer -->        
+        <div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px"><center> <a href="about" data-role="button">About us</a> <a href="#Main" data-role="button">Language</a></center></div>
+        <br>
+    <br>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<!--About Pages-->        
+<div data-role="page" id="about">
+<div data-role="header" data-theme="b" data-position="fixed">
+<h1>About us</h1>
+</div>
+<!-- /header -->
+<div data-role="content">
+	<h2>Name of the corporation:</h2>
+	<li>Name in Taiwan:                                 Hong Hai Science and Technology Corporation</li>
+	<li>Name in China:                                   Foxconn Science and Technology Corporation</li>
+	<li>English brand:                                     HON HAI TECHNOLOGY GROUP ~ FOXCONN TECHNOLOGY GROUP</li>
+	<li>Chairman of the Group:                        Quach Dai Minh (TERRY GOU)</li>
+	<br /> <i>* Date of establishment of the Group:  February 20th 1974**  </i>
+	<div data-role="collapsible" data-collapsed="true">
+		<h3>About us</h3>
+		<p>&nbsp;</p>
+		<li>Hong Hai Science and Technology Corporation was established in 1974 in Taiwan with the largest scale in the world in the fields of electronics, information technology and computers.</li>
+		<li> In March 2007, the Group began to build factories in Bac Ninh, Bac Giang and some provinces of Vietnam. </li>
+		<li>Diversified products in various fields related to computers, information technology, consumer electronics, automotive components, semiconductor devices and technology for environmental protection, etc...</li>
+		<p>&nbsp;</p>
+	</div>
+	<div data-role="collapsible" data-collapsed="true">
+		<h3>About this app</h3>
+		<p>&nbsp;</p>
+		<p>The Foxconn-VN app provides access to find information sheets which can be read on android phones, iphones and other mobile phones equipped with a web browser.</p>
+		<li>This app is text-based so it can be used in inexpensive phones, but the versions for smartphones include images, videos, and audio. </li>
+		<li>This app is free to download and opensource. </li>
+		<li>Software development by IT-VN team. </li>
+		<li>Graphic design by IT-VN team. </li>
+		<p>&nbsp;</p>
+	</div>
+	<div data-role="collapsible" data-collapsed="true">
+		<h3>Involved</h3>
+		<p>&nbsp;</p>
+		<p>What you can find?</p>
+		<p>&nbsp;</p>
+	</div>
+</div>
+    
+<p><!-- /page --></p>
+<div data-role="page" id="item7">
+<div data-role="header" data-theme="b">
+	<h1>Sources</h1>
+</div>
+<!-- /content -->
+	<div data-role="footer" data-theme="b" style="position:absolute;bottom:0; width:100%;height:30px" data-position="fixed"><center> <a href="about" data-role="button">About us</a> <a href="#Main" rel="external" data-role="button">Language</a></center></div>
+</div>
+<p><!-- /page --></p>
+</body>
+</html>
